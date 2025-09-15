@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+ <!doctype html>
+<html lang="en">	
 
 <head>
 	<meta charset="utf-8">
@@ -120,7 +120,7 @@
 						<td th:text="${enq.enqStatus}"></td>
 
 						<td>
-							<a href="">Edit</a>
+							<a th:href="@{'/editEnq?enqId='+${enq.enqId}}">Edit</a>
 						</td>
 
 

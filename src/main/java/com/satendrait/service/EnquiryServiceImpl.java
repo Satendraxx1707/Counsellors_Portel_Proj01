@@ -45,10 +45,9 @@ public class EnquiryServiceImpl implements EnquiryService {
 		
 		  // associating counsellor to enquiry
 		 
-		enq.setCounsellor(counsellor);
-		 Enquiry save = enqRepo.save(enq);
+		   enq.setCounsellor(counsellor);
 		 
-		
+		Enquiry save = enqRepo.save(enq);   // UPSERT Method: (Update the records + insert the records)
 		 
 		 if(save.getEnqId()!=null) {
 			 

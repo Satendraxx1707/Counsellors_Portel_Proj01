@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.satendrait.dto.DashboardResponse;
 import com.satendrait.dto.ViewEnqsFilterRequest;
@@ -75,7 +76,7 @@ public class EnquiryController {
 	
 	
 	
-	
+	//  Return ->Give empty Enq form
 	
 @GetMapping("/enquiry")
 public String addEnquiryPage(Model model) {
@@ -85,6 +86,16 @@ public String addEnquiryPage(Model model) {
 }
 
 
+// Return ->Give entry load data  Enq form 
+@GetMapping("/editEnq")
+
+public String editEnquriy(@RequestParam("enqId")Integer enqId, Model model) {
+	
+	Enquiry enquiry =  enqService.getEnquriById(enqId);
+    model.addAttribute("enquiry", enquiry);
+
+	return "enquiryForm";
+}
 
 
 

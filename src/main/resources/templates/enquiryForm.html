@@ -64,6 +64,9 @@
 				<tr>
 					<td>Student Name :</td>
 					<td><input type="text" th:field="*{stuName}" required></td>
+					<input type="hidden" th:field="*{enqId}" required>   
+					
+					// problem get solved UPSERT (update + create new record --> now only update the record will not create new  or duplicate)
 
 				</tr>
 
