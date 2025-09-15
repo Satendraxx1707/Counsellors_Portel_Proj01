@@ -121,7 +121,7 @@ public class Enquiry {
 	
 	
 	@ManyToOne
-	@JoinColumn (name="counsellorid")
+	@JoinColumn (name="counsellor_id")
 	private Counsellor counsellor ;
 	
 

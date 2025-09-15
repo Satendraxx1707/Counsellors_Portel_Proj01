@@ -59,12 +59,37 @@ session.setAttribute("counsellorId",c.getCounsellorId());
 			DashboardResponse dbresobj = counsellorService.getDashboardInfo(c.getCounsellorId());
 			model.addAttribute("dashboardInfo", dbresobj);
 			return "dashboard";
+			
+			// We can replace by  above 3 lines boiler plate code Topez 2
+			// return "redirect:/dashboard";
 		}
 		
 		
 	
 		
 	}
+	
+	@GetMapping("/dashboard")
+	public String displayDashboard(HttpServletRequest req, Model model) {
+		
+		
+		//get existing Session object
+		
+		//Topez-1
+			HttpSession session = req.getSession(false);
+			Integer counsellorId = (Integer) session.getAttribute("counsellorId");
+		// Topez-2
+			DashboardResponse dbresobj = counsellorService.getDashboardInfo(counsellorId);
+			model.addAttribute("dashboardInfo", dbresobj);
+		
+		return "dashboard";
+	}
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/register")
 	public String registerPage(Model model ) {
